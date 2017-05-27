@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while read line; do
+	echo $l | awk -F: '{print $1;print $3;print $5}'
+done < /etc/passwd
