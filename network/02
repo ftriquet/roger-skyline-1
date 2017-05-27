@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ifconfig `networksetup -listallhardwareports | awk '/Hardware Port: Ethernet/{getline; print $2}'` | grep 'inet ' | awk '{print $2;}'
