@@ -1,0 +1,6 @@
+#! /bin/bash
+
+LOGFILE="/var/log/update_script.log"
+
+apt-get update &>> "$LOGFILE"
+apt-get upgrade &>> "$LOGFILE"

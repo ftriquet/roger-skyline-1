@@ -1,0 +1,16 @@
+#!/bin/bash
+
+USAGE="Usage: $0 DIR"
+
+if [[ $# -ne 1 ]]; then
+	echo "$USAGE"
+	exit 1
+fi
+
+if [[ ! -d $1 ]]; then
+	echo "Error: parameter should be a directory"
+	echo "$USAGE"
+	exit 1
+fi
+
+ls -Sr "$1"
