@@ -7,9 +7,9 @@ if [[ -f $BKP_FILE ]]; then
 	old_sum=$(cat "$BKP_FILE")
 
 	if [[ ! "$sum" = "$old_sum" ]]; then
-		echo "FILE CHANGED"
-		# SEND MAIL
+		mail -s 'CRONTAB' root <<EOF
+The /etc/crontab file changed
+EOF
 	fi
-else
-	cat /etc/crontab | md5sum > $BKP_FILE
 fi
+cat /etc/crontab | md5sum > $BKP_FILE
