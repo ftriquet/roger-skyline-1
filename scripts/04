@@ -13,3 +13,10 @@ EOF
 	fi
 fi
 cat /etc/crontab | md5sum > $BKP_FILE
+
+# To create an automated task to run this script:
+# execute crontab -e
+# This command opens a temp file containing all tasks for the current user
+# Add this line to the file:
+# 0 0 * * * PATH_TO_THE_SCRIPT
+# save and quit
