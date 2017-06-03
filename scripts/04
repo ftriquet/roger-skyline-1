@@ -1,0 +1,15 @@
+#! /bin/bash
+
+BKP_FILE="/tmp/cron-sum"
+
+if [[ -f $BKP_FILE ]]; then
+	sum=$(cat /etc/crontab | md5sum)
+	old_sum=$(cat /etc/crontab)
+
+	if [[ ! "$sum" = "$old_sum" ]]; then
+		echo "FILE CHANGED"
+		# SEND MAIL
+	fi
+else
+	cat /etc/crontab | md5sum > $BKP_FILE
+fi
