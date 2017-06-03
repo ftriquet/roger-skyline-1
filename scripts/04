@@ -4,7 +4,7 @@ BKP_FILE="/tmp/cron-sum"
 
 if [[ -f $BKP_FILE ]]; then
 	sum=$(cat /etc/crontab | md5sum)
-	old_sum=$(cat /etc/crontab)
+	old_sum=$(cat "$BKP_FILE")
 
 	if [[ ! "$sum" = "$old_sum" ]]; then
 		echo "FILE CHANGED"
