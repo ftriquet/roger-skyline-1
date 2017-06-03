@@ -4,3 +4,10 @@ LOGFILE="/var/log/update_script.log"
 
 apt-get update &>> "$LOGFILE"
 apt-get upgrade &>> "$LOGFILE"
+
+# To create an automated task to run this script:
+# execute crontab -e
+# This command opens a temp file containing all tasks for the current user
+# Add this line to the file:
+# 0 4 * * 0 PATH_TO_THE_SCRIPT
+# save and quit
